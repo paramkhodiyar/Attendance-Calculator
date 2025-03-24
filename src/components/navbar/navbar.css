@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: white;
+    color: black;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: rgb(226, 154, 39);
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav-links a {
+    color: white;
+}
+
+.dark-mode .nav-links a:hover {
+    color: rgb(230, 151, 14);
+}
+
+.dark-mode-toggle {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ddd;
+}
+
+.dark-mode .dark-mode-toggle {
+    background-color: #444;
+    color: rgb(255, 255, 255);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.toggle5 {
+    position: relative;
+    width: 80px;
+    height: 40px;
+}
+
+.toggle5 input {
+    display: none;
+}
+
+.toggle5 span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 34px;
+    background-color: transparent;
+    transition: 0.4s;
+    box-shadow: 1px 1px 5px 0 #2c2c2c inset;
+}
+.toggle5 span:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 7px;
+    background-color: #b93c53;
+    transition: 0.4s;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 2px 0px #e64d69;
+}
+.toggle5 input:checked + span {
+    box-shadow: 1px 1px 5px 0 #f1f4f3 inset;
+}
+
+.toggle5 input:checked + span:before {
+    transform: translateX(46px);
+    background-color: #1a6b62;
+    box-shadow: inset -1px 1px 2px 0px #279286;
+}
