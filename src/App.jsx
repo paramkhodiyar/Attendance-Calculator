@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/navbar/navbar";
 import Home from "./components/Home/home";
+import CalcPage from "./components/calcpage/calcpage";
+import Settings from "./components/settings/settings";
+
 function App() {
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("darkMode") === "true"
@@ -13,10 +17,14 @@ function App() {
   }, [darkMode]);
 
   return (
-    <>
+    <Router>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Home darkMode={darkMode} />
-    </>
+      <Routes>
+        <Route path="/" element={<Home darkMode={darkMode} />} />
+        <Route path="/calculator" element={<CalcPage darkMode={darkMode} />} />
+        <Route path="/settings" element={<Settings darkMode={darkMode} />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,11 +1,10 @@
-/* Light Mode (Default) */
+
 body {
     background-color: white;
     color: black;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-  
-  /* Dark Mode */
+
   body.dark-mode {
     background-color: black;
     color: white;
@@ -22,11 +21,16 @@ body {
     color: white;
   }
   
-  /* Ensure the Home component also follows dark mode */
   .home.dark-mode {
-    background-color: #222;
+    background-color: #000000;
     color: white;
   }
+  .home.dark-mode h1 {
+    color: white;
+  }
+    .home.dark-mode p {
+        color: #ccc;
+    }
   
   .container.dark-mode {
     background-color: #333;
