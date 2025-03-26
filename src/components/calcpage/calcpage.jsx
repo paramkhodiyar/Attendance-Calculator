@@ -24,7 +24,7 @@ function CalcPage({ darkMode }) {
 
     const classesLeftToAttend = 
         classesTotal !== null && classesAttended !== null && classesTotal > classesAttended
-            ? classesTotal - classesAttended
+            ? 171 - classesTotal
             : 0;
 
     return (
