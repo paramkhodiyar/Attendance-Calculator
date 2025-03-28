@@ -23,18 +23,15 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Light mode styles */
 body.light-mode .mainpage {
     background-color: #f9f9f9;
     color: #333;
 }
-
 body.light-mode .card {
     background-color: #ffffff;
     color: #333;
 }
 
-/* Dark mode styles */
 body.dark-mode .mainpage {
     background-color: #121212;
     color: #f9f9f9;
@@ -84,3 +81,57 @@ body.dark-mode .card {
     border-radius: 16px;
     padding: 25px;
 }
+
+.card h2 {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #007bff;
+    text-align: left;
+}
+.form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    appearance: none;
+    cursor: pointer;
+}
+
+.form select:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #f0f8ff;
+}
+
+.form select::-ms-expand {
+    display: none;
+}
+
+.form select::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+}
+.form input:hover {
+    border-color: #0056b3;
+}
+
+.card {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
