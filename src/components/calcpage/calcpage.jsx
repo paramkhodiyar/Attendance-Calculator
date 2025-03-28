@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import "./calcpage.css";
 
 function CalcPage({ darkMode }) {
     const [percentage, setPercentage] = useState(null);
     const [classesTotal, setClassesTotal] = useState(null);
     const [classesAttended, setClassesAttended] = useState(null);
+    const [classesSemester, setClassesSemester] = useState(null);
 
     function handleSubmit(e) {  
         e.preventDefault();
@@ -13,6 +15,7 @@ function CalcPage({ darkMode }) {
         const classesSemester = parseFloat(e.target[2].value);
         setClassesTotal(classesTotal);
         setClassesAttended(classesAttended);
+        setClassesSemester(classesSemester);
 
         if (classesTotal > 0) {
             const calculatedPercentage = (classesAttended / classesTotal) * 100;
@@ -23,10 +26,14 @@ function CalcPage({ darkMode }) {
     }
 
     const classesLeftToAttend = 
-        classesTotal !== null && classesAttended !== null && classesTotal > classesAttended
-            ? 171 - classesTotal
+        classesSemester !== null && classesTotal !== null
+            ? classesSemester - classesTotal
             : 0;
-
+    const noskipclasses = 
+        classesSemester !== null && classesTotal !== null ? ((classesAttended + classesLeftToAttend) / classesSemester )*100 : "undefined"
+    const keepuppercentage = 
+        classesSemester !== null && classesTotal !== null 
+            ? ((percentage * classesSemester)/100) - classesAttended : 0
     return (
         <>
             <div className="mainpage">
@@ -43,8 +50,9 @@ function CalcPage({ darkMode }) {
                             </form>
                         </div>
                         <h2>{percentage !== null ? `Attendance: ${percentage}%` : ""}</h2>
-                        <h2>{classesAttended}</h2>
                         <h2>Classes left to attend: {classesLeftToAttend}</h2>
+                        <h2>{`Your Attendance percentage if you dont skip classes will be :${noskipclasses}% `}</h2>
+                        <h2>{`Number of classes to attend to keep up with your percentage :${keepuppercentage} `}</h2>
                     </div>
                 </div>
             </div>
