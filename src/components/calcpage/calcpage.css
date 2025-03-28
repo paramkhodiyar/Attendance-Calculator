@@ -1,4 +1,3 @@
-/* General styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -14,6 +13,12 @@ body {
 
 .container {
     text-align: center;
+    gap: 25px;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
@@ -21,6 +26,8 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, color 0.3s ease;
+    width: 40%;
+    word-wrap: normal;
 }
 
 body.light-mode .mainpage {
@@ -123,6 +130,25 @@ body.dark-mode .card {
 .card {
     animation: fadeIn 0.5s ease-in-out;
 }
+
+.analysiscard {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 40%;
+    word-wrap: normal;
+}
+
+body.light-mode .analysiscard {
+    background-color: #ffffff;
+    color: #333;
+}
+body.dark-mode .analysiscard {
+    background-color: #1e1e1e;
+    color: #f9f9f9;
+}
+
 
 @keyframes fadeIn {
     from {

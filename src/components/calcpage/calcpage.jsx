@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./calcpage.css";
-import Arrow38 from "./arrow";
 
 function CalcPage({ darkMode }) {
     const [percentage, setPercentage] = useState(null);
@@ -37,17 +36,17 @@ function CalcPage({ darkMode }) {
     const noskipclasses = 
         classesSemester !== null && classesTotal !== null 
             ? (((classesAttended + classesLeftToAttend) / classesSemester) * 100).toFixed(2) 
-            : null;
+            : "";
     
     const keepuppercentage = 
         percentage !== null && classesSemester !== null
             ? Math.max(0, Math.ceil(((percentage * classesSemester) / 100) - classesAttended))
-            : null;
+            : "";
     
     const criteriaClassesToMaintain = 
         criteria !== null && classesSemester !== null
             ? Math.max(0, Math.ceil(((criteria / 100) * classesSemester) - classesAttended))
-            : null;
+            : "";
 
     return (
         <>
@@ -55,7 +54,7 @@ function CalcPage({ darkMode }) {
                 <div className="container">
                     <div className="card">
                         <h1>Calculator</h1>
-                        <p>Calculate your attendance percentage with ease!</p>
+                        <p>Calculate your attendance stats with ease!</p>
                         <div className="formcontainer">
                             <form className="form" onSubmit={handleSubmit}>
                                 <input type="number" placeholder="Classes Total so-far" />
@@ -79,8 +78,8 @@ function CalcPage({ darkMode }) {
                         <h2>{`Number of classes to attend to keep up with your percentage: ${keepuppercentage}`}</h2>
                         <h2>{`Number of classes to attend to maintain the criteria: ${criteriaClassesToMaintain}`}</h2>
                     </div>
-                    <Arrow38 />
-                    <div className="analysis">
+                    {/* <Arrow38 /> */}
+                    <div className="analysiscard">
                         <h2>Analysis</h2>
                         <p>
                             This calculator helps you determine your attendance percentage and the number of classes you need to attend to meet the criteria.
